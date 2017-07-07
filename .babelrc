@@ -1,0 +1,15 @@
+{
+  "presets": [
+    [
+      "latest",
+      {
+        "modules": false
+      }
+    ]
+  ],
+  "plugins": [
+    // "transform-decorators-legacy",
+    // "babel-plugin-transform-class-properties",
+    "babel-plugin-transform-object-rest-spread"
+  ]
+}
