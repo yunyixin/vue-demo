@@ -1,0 +1,9 @@
+# IDE
+./idea
+
+#nodejs
+node_modules/
+npm-debug.log
+yarn-error.log
+
+#others
