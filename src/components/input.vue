@@ -14,17 +14,16 @@
 
 <script>
   export default {
-    data() {
-      return {
-        label: '用户名',
-        value: ''
-      };
+    props: {
+      label: {type: String},
+      value: {type: String}
     }
   };
 </script>
 
 <style lang="scss" scoped>
     .custom-input {
+        margin-bottom: 6px;
         border: 2px solid olivedrab;
 
         label {

@@ -2,14 +2,8 @@
     <div id="app">
         <div class="nav">
             <!-- 单组件必须小写，不能自闭合 -->
-            <nav-bar></nav-bar>
-            <ol>
-                <todo-item
-                        v-for="(item, index) in lists"
-                        v-bind:list="item"
-                        v-bind:key="index">
-                </todo-item>
-            </ol>
+            <nav-bar :navs="navs"></nav-bar>
+            <router-view></router-view>
         </div>
         <div class="input">
             <normal-input></normal-input>
@@ -17,7 +11,10 @@
         <div class="view">
             <div> sidebar: {{msg}}</div>
             <div>content: {{content}}</div>
-            <list :lists="lists" title="父组件传递属性" @click="onAdd"></list>
+            <list :lists="lists" title="父组件传递属性"
+                  v-on:add="onAdd"
+                  v-on:delete="onDelete">
+            </list>
         </div>
     </div>
 
@@ -55,6 +52,13 @@
       return {
         msg: 'welcome',
         content: 'this is a template for vue',
+        navs: [{
+          text: '链接1',
+          path: '/signin'
+        }, {
+          text: '链接2',
+          path: '/detail'
+        }],
         lists: [{
           text: '111'
         }, {
@@ -66,6 +70,10 @@
     methods: {
       onAdd() {
         this.lists.push({text: '新增'});
+      },
+      onDelete(index) {
+        this.lists.splice(index, 1);   // dangerously
+        // console.log(index, this.lists);
       }
     },
 
@@ -85,6 +93,7 @@
     }
 
     .nav {
+        height: 200px;
         margin: 4px;
         border: 1px solid red;
     }

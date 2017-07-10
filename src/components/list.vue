@@ -3,7 +3,9 @@
         <h3>{{title}}</h3>
         <ol>
             <li v-for="(item, index) in lists">
-                {{index}}-{{item.text}} <button @click="onAdd">add</button>
+                {{index}}-{{item.text}}
+                <button @click="onAdd">add</button>
+                <button @click="onDelete(index)">delete</button>
             </li>
         </ol>
     </div>
@@ -20,7 +22,10 @@
 
     methods: {
       onAdd() {
-        this.$emit('click');
+        this.$emit('add');
+      },
+      onDelete(index) {
+        this.$emit('delete', index);
       }
     }
   };

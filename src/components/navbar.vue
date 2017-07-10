@@ -1,9 +1,11 @@
 <!-- 单文件组件 -->
 <template>
     <div class="navbar">
-        <div v-for="(nav, index) in navs" class="navbar_item" @click="onClick">
-            {{nav.text}}
-        </div>
+        <template  v-for="(nav, index) in navs">
+            <router-link :to="nav.path" class="navbar_item" @click="onClick">
+                {{nav.text}}
+            </router-link>
+        </template>
     </div>
 </template>
 
@@ -11,14 +13,8 @@
 
   export default{
 
-    data() {
-      return {
-        navs: [{
-          text: '导航1'
-        }, {
-          text: '导航2'
-        }]
-      };
+    props: {
+      navs: {type: Array}
     },
 
     methods: {
