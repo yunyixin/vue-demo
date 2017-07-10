@@ -9,7 +9,7 @@
   export default {
     data() {
       return {
-        label: '用户名'
+        label: '用户名CESHI'
       };
     }
   };

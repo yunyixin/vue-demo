@@ -1,9 +1,10 @@
 # IDE
 .idea/
 
-#nodejs
+# nodejs
 node_modules/
 npm-debug.log
 yarn-error.log
 
-#others
+# others
+env.js
