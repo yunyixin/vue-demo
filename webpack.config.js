@@ -9,7 +9,7 @@ const env = require('./env');
 
 module.exports = {
 
-  devtool: 'inline-source',
+  devtool: '#eval-source-map', // '#source-map',
 
   entry: {
     app: './src/main.js',
@@ -25,7 +25,10 @@ module.exports = {
 
   resolve: {
     extensions: ['.js', '.vue'],
-    modules: ['node_modules', 'src']
+    modules: ['node_modules', 'src'],
+    alias: {
+      'vue': 'vue/dist/vue.common.js',
+    }
   },
 
   module: {

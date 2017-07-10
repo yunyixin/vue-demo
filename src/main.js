@@ -8,3 +8,9 @@ new Vue({
   el: '#app',
   render: h => h(App)
 });
+
+/*
+ const app = new Vue({
+    render: (h) => h(App)
+ }).$mount('#app')
+ */
