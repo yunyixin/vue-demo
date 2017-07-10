@@ -38,14 +38,4 @@
     "webpack": "2.6.1",
     "webpack-dev-server": "^2.5.0"
   }
-
-//  devServer: {
-//    quiet: true,
-//    historyApiFallback: true,
-//    watchOptions: {
-//      aggregateTimeout: 300,
-//      poll: 1000
-//    },
-//    compress: true
-//  }
 }
