@@ -1,14 +1,14 @@
 <template>
-    <ol>
-        <todo-item
-                v-for="(item, index) in lists"
-                v-bind:list="item"
-                v-bind:key="index">
-        </todo-item>   <!-- 全局组件 -->
-    </ol>
+    <div class="list">
+        <list :lists="lists" title="父组件传递属性"
+              v-on:add="onAdd"
+              v-on:delete="onDelete">
+        </list>
+    </div>
 </template>
 
 <script>
+    import List from '../components/list.vue';
 
     export default {
 
@@ -21,6 +21,18 @@
             text: '222'
           }]
         };
-      }
+      },
+
+      methods: {
+        onAdd() {
+          this.lists.push({text: '新增'});
+        },
+        onDelete(index) {
+          this.lists.splice(index, 1);   // dangerously
+          // console.log(index, this.lists);
+        }
+      },
+
+      components: {List}
     };
 </script>
