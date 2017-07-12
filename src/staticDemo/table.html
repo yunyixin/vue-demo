@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name=viewport
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <title>vue-demo</title>
+    <style>
+        #app{
+            display: block;
+            width: 540px;
+            overflow-x: auto;
+        }
+        .table {
+            width: 600px;
+            table-layout: fixed;
+            border: 1px solid gray;
+            overflow-x: auto;
+        }
+
+        /*.table thead tr {
+            display: flex;
+        }*/
+
+        .table thead td {
+            position: relative;
+            width: 120px;
+            height: 60px;
+            border: 1px solid red;
+        }
+
+        table tbody td {
+            height: 30px;
+            border: 1px solid green
+        }
+
+        .col-resize {
+            position: absolute;
+            top: 20px;
+            right: -12px;
+            width: 6px;
+            height: 30px;
+            margin: 0 4px;
+            cursor: col-resize;
+            user-select: none;
+            border-right: 4px solid gray;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="table">
+        <table cellspacing="10" cellpadding="0">
+            <thead>
+            <tr>
+                <td id="choose">11
+                <div class="col-resize"></div>
+                </td>
+                <td id="choose2">22</td>
+                <td>33</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>11</td>
+                <td>22</td>
+                <td>33</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- built files will be auto injected -->
+</body>
+<script>
+  const obj = document.querySelector('#choose');
+  const rect = obj.getBoundingClientRect();
+  let mouseDown = false;
+
+  const mouseMoved = function (e) {
+
+    if(mouseDown) {
+      const x = e.clientX - rect.left;
+
+      obj.style.width = `${x}px`;
+      console.log('move',x, e);
+    }
+  };
+
+  const resizeMouseDown = function (e) {
+    console.log('mousedown', e);
+    mouseDown = true;
+    e.target.parentNode.addEventListener("mousemove", mouseMoved, false);
+  };
+
+  const resizeMpouseUp = function (e) {
+    console.log('mouseup', e);
+    mouseDown = false;
+    e.target.removeEventListener("mousemove", mouseMoved, false);
+  };
+
+
+  obj.addEventListener('mousedown', resizeMouseDown, false);
+
+  obj.addEventListener('mouseup', resizeMpouseUp, false);
+  document.querySelector('#choose2').addEventListener('mouseup', resizeMpouseUp, false);
+
+</script>
+</html>
