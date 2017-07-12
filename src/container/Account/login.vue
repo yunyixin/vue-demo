@@ -81,6 +81,7 @@
         flex-direction: column;
         justify-items: center;
         align-items: center;
+        width: 600px;
         margin: 12px 6px;
     }
 </style>

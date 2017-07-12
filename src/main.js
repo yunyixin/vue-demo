@@ -4,9 +4,12 @@ import VueRouter from 'vue-router';
 
 import App from './App.vue';
 import Home from './container/Home.vue';
-import SignIn from './container/signin.vue';
 import Detail from './container/detail.vue';
+
+
 import LogIn from './container/Account/login.vue';
+import Account from './container/Account/account.vue';
+import Register from './container/Account/register.vue';
 
 // Vue.use(VueResource);
 
@@ -19,11 +22,14 @@ const router = new VueRouter({
       path: '/', component: Home
     },
     {
-      path: '/login', component: LogIn
+      path: '/account',
+      component: Account,
+      children: [
+        {path: 'login', component: LogIn},
+        {path: 'register', component: Register}
+      ]
     },
     {
-      path: '/signin', component: SignIn
-    }, {
       path: '/detail', component: Detail
     }
   ]

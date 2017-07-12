@@ -34,7 +34,7 @@
           keywords: '',
           navs: [{
             text: '链接1',
-            path: '/login'
+            path: '/account'
           }, {
             text: '链接2',
             path: '/detail'
