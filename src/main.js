@@ -4,8 +4,9 @@ import VueRouter from 'vue-router';
 
 import App from './App.vue';
 import Home from './container/Home.vue';
-import Detail from './container/detail.vue';
 
+import Lists from './container/Lists.vue';
+import Detail from './container/detail.vue';
 
 import LogIn from './container/Account/login.vue';
 import Account from './container/Account/account.vue';
@@ -30,7 +31,10 @@ const router = new VueRouter({
       ]
     },
     {
-      path: '/detail', component: Detail
+      path: '/lists', component: Lists
+    },
+    {
+      path: '/lists/:id', component: Detail
     }
   ]
 });

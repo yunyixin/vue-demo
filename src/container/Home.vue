@@ -37,19 +37,22 @@
             path: '/account'
           }, {
             text: '链接2',
-            path: '/detail'
+            path: '/lists'
           }],
           lists: [{
-            text: '111'
+            text: 'to-do1'
           }, {
-            text: '222'
+            text: 'to-do2'
+          }, {
+            text: 'to-do3'
           }]
         };
       },
 
       methods: {
         onAdd() {
-          this.lists.push({text: '新增'});
+          const length = this.lists.length;
+          this.lists.push({text: `to-do新增${length + 1}`});
         },
         onDelete(index) {
           this.lists.splice(index, 1);   // dangerously
